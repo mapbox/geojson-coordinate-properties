@@ -64,7 +64,7 @@ Members can have any name, but semantics of two names are defined:
 
 A `times` member of the `coordinateProperties` MUST contain values that are either
 
-* A Number corresponding to a Unix timestamp in uniseconds since 1 January 1970 00:00:00 UTC.
+* A Number corresponding to a Unix timestamp in milliseconds since 1 January 1970 00:00:00 UTC.
 * A String formatted as ISO 8601
 * `null`, indicating no data for this coordinate
 
