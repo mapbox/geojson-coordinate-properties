@@ -49,13 +49,13 @@ A GeoJSON feature collection with `coordinateProperties`:
 }
 ```
 
-## coordProps
+## coordinateProperties
 
-`coordProps` is a special property that MAY be included in the `properties`
-member of a `Feature` object. A `Feature` object with `coordProps` defined
+`coordinateProperties` is a special property that MAY be included in the `properties`
+member of a `Feature` object. A `Feature` object with `coordinateProperties` defined
 in its `properties` MUST contain a geometry object of type `LineString`.
 
-`coordProps` MAY contain one or more members, which each MUST have a value
+`coordinateProperties` MAY contain one or more members, which each MUST have a value
 of type Array. Each Array value MUST have have the same length
 as the `coordinates` member of the LineString geometry of that Feature.
 Members can have any name, but semantics of two names are defined:
