@@ -49,16 +49,60 @@ A GeoJSON feature collection with `coordinateProperties`:
 }
 ```
 
+MultiLineString Geometry with higher level of nesting
+
+```json
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+            "type": "MultiLineString",
+            "coordinates": [
+                [
+                    [102.0, 0.0],
+                    [103.0, 1.0]
+                ],
+                [
+                    [104.0, 0.0],
+                    [105.0, 1.0]
+                ]
+            ]
+        },
+        "properties": {
+            "prop0": "value0",
+            "prop1": 0.0,
+            "coordinateProperties": {
+                "times": [
+                    [
+                        1434126869275,
+                        1434136869275,
+                    ],
+                    [
+                        1434146869275,
+                        1434166869275
+                    ]
+                ]
+            }
+        }
+    }]
+}
+```
+
 ## coordinateProperties
 
 `coordinateProperties` is a special property that MAY be included in the `properties`
-member of a `Feature` object. A `Feature` object with `coordinateProperties` defined
-in its `properties` MUST contain a geometry object of type `LineString`.
+member of a `Feature` object.
 
 `coordinateProperties` MAY contain one or more members, which each MUST have a value
 of type Array. Each Array value MUST have have the same length
 as the `coordinates` member of the LineString geometry of that Feature.
-Members can have any name, but semantics of two names are defined:
+The nesting level of the array MUST match the nesting level of the geometry,
+such that each `LinearRing` of the geometry yields an array in the `coordinateProperties`,
+and each `position` in the geometry yields one concrete value.
+
+Members of the `coordinateProperties` property can
+have any name, but semantics of two names are defined:
 
 ### times
 
